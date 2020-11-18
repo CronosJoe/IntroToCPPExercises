@@ -1,0 +1,7 @@
+﻿  CPPArrayExercisesRedo.cpp
+C:\Users\s209062\Desktop\Joseph's AIE github folder\CPPArrayExercisesRedo\CPPArrayExercisesRedo\CPPArrayExercisesRedo.cpp(7,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\s209062\Desktop\Joseph's AIE github folder\CPPArrayExercisesRedo\CPPArrayExercisesRedo\CPPArrayExercisesRedo.cpp(15,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\s209062\Desktop\Joseph's AIE github folder\CPPArrayExercisesRedo\CPPArrayExercisesRedo\CPPArrayExercisesRedo.cpp(24,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\s209062\Desktop\Joseph's AIE github folder\CPPArrayExercisesRedo\CPPArrayExercisesRedo\CPPArrayExercisesRedo.cpp(36,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\s209062\Desktop\Joseph's AIE github folder\CPPArrayExercisesRedo\CPPArrayExercisesRedo\CPPArrayExercisesRedo.cpp(48,19): warning C4018: '<': signed/unsigned mismatch
+  CPPArrayExercisesRedo.vcxproj -> C:\Users\s209062\Desktop\Joseph's AIE github folder\CPPArrayExercisesRedo\Debug\CPPArrayExercisesRedo.exe
