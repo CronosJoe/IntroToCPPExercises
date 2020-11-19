@@ -54,6 +54,30 @@ int countElement(int numbers[], size_t size, int value)
     }
     return count;
 }
+bool arrayUniqueness(int numbers[], size_t size)
+{
+    for(int i =0; i<size; ++i)
+    {
+        for(int j = i+1; j<size; ++j)
+        {
+            if(numbers[i] ==numbers[j])
+            {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+void reverseArray(int numbers[], size_t size)
+{
+    int temp;
+    for(int i =0; i<size/2;i++)
+    {
+        temp = numbers[i];
+        numbers[i] = numbers[(size-1)-i];
+        numbers[(size-1) - i] = temp;
+    }
+}
 int main()
 {
     int numb[] = { 1,2,3,4};
@@ -67,7 +91,8 @@ int main()
     //std::cout << foundIndex << std::endl;
     int occurance = countElement(numb, arrSize, 1);
     //std::cout << occurance << std::endl;
-
+    bool unique = arrayUniqueness(numb, arrSize);
+    reverseArray(numb, arrSize);
     return 0;
 }
 
