@@ -74,7 +74,20 @@ int* duplicateArray(int* origArray, size_t size)
 }
 int* getIntSubArr(int* arr, size_t size, int startPoint)
 {
-
+    //should probably put an exception in case startpoint entered is greater then array size but I'm skipping that.
+    int* subArr = new int[size - startPoint];
+    int count = 0; //made this to count up the original arrays element slot 
+    for(int i = startPoint;i<size;++i)
+    {
+        subArr[count] == arr[i];
+    }
+    return subArr;
+}
+void swap(int* pointOne, int* pointTwo)
+{
+    int tmp = *pointOne;
+    *pointOne = *pointTwo;
+    *pointTwo = tmp;
 }
 char* getPointer(char* arr, size_t size, bool caseSense, char search)
 {
