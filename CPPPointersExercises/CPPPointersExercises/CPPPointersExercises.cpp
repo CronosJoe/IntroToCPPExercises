@@ -45,25 +45,60 @@ int* zeroArray(size_t size)
 void favoriteNumbers()
 {
     int maxNum, n;
-    int* p;
+    int* arr;
     std::cout << "How many numbers would you like to type? ";
     std::cin >> maxNum;
-    p = new int[maxNum];
+    arr = new int[maxNum];
     
         for (n = 0; n < maxNum; n++)
         {
             std::cout << "what is one of your favorite numbers?: ";
-            std::cin >> p[n];
+            std::cin >> arr[n];
         }
         std::cout << "Your number(s): ";
         for (n = 0; n < maxNum; n++)
         {
-            std::cout << p[n] << ", ";
+            std::cout << arr[n] << ", ";
         }
-        delete[] p;
+        delete[] arr;
     
 }
+int* duplicateArray(int* origArray, size_t size)
+{
+    int* dupArr = new int[size];
+    for(int i = 0; i < size; ++i)
+    {
+        dupArr[i] = origArray[i];
+    }
+    return dupArr;
+}
+int* getIntSubArr(int* arr, size_t size, int startPoint)
+{
 
+}
+char* getPointer(char* arr, size_t size, bool caseSense, char search)
+{
+    if(caseSense)
+    {
+        for(int i =0; i<size; ++i)
+        {
+            if(tolower(arr[i])==search)
+            {
+                return &arr[i];
+            }
+        }
+    }else
+    {
+        for (int i = 0; i < size; ++i)
+        {
+            if (arr[i] == search)
+            {
+                return &arr[i];
+            }
+        }
+    }
+    return nullptr;
+}
 int main()
 {
     float numbers[] = { 1.2,1.3,1.4,1.5 };
@@ -77,21 +112,18 @@ int main()
 
     bool check[5];
     initBools(check, 5, false);
-//  std::cout << "Check" << std::endl; used for debug stop points
+    //std::cout << "Check" << std::endl; used for debug stop points
     int* dynZero = zeroArray(5);
    // printInt(dynZero, 5);
     delete[] dynZero;
-    favoriteNumbers();
+    //favoriteNumbers();
+
+    int* dynOrig = new int[4];
+    dynOrig[0] = 1; dynOrig[1] = 2; dynOrig[2] = 1; dynOrig[3] = 2;
+    int* dynDup = duplicateArray(dynOrig, 4);
+    //printInt(dynDup, 4);
+    delete[] dynOrig;
+    delete[] dynDup;
+
 
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
