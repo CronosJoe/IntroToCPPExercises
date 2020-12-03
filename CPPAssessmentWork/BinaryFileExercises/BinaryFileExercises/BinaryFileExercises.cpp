@@ -47,7 +47,6 @@ void myInformation()
     std::cout << "Please provide a name for your file." << std::endl;
     std::string input;
     std::cin >> input;
-    int count = 0;//this is a test variable
     file.open(input, std::ios::out);
     // verify that the file stream is open
     if(!file.is_open())
@@ -64,24 +63,21 @@ void myInformation()
     //writing to the file
     //name
     std::cout << "What is your name?" << std::endl;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::getline(std::cin, input);
     file << "Name: " + input << std::endl; //still wanna move to next line
-    count++;
-    if (count == 1) 
-    {
+    
         //age
         std::cout << "What is your age?" << std::endl;
         std::getline(std::cin, input);
         file << "Age: " + input << std::endl;
-        count++;
-    }
-    if (count == 2)
-    {
+       
+    
         //color
         std::cout << "What is your favorite color?" << std::endl;
         std::getline(std::cin, input);
         file << "Color: " + input << std::endl;
-    }
+    
     file.flush(); // flush the output buffer, making sure all outputs are sent
     file.close();
 
