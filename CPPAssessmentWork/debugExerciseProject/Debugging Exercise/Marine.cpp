@@ -4,6 +4,7 @@
 
 Marine::Marine()
 {
+	maxHealth = 50;
 	health = 50;
 }
 
@@ -19,5 +20,7 @@ int Marine::attack()
 
 void Marine::takeDamage(int damage)
 {
-	health -= damage;
+	health -=damage;
+	if (health < 0)
+		health = 0;
 }

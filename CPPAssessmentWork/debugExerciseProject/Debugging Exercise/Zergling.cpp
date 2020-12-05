@@ -4,6 +4,8 @@
 
 Zergling::Zergling()
 {
+	maxHealth = 50;
+	health = 50;
 }
 
 

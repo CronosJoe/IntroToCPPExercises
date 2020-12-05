@@ -16,25 +16,42 @@
 // Last modified by Terry Nguyen (terryn@aie.edu.au)
 // 10/09/2019
 
+
 #include <iostream>
 #include "Marine.h"
 #include "Zergling.h"
+#include <vector>
 
+using std::vector;
 using std::cout;
 using std::endl;
 
+int squadSize = 10;
+int swarmSize = 20;
+
+bool marineAlive();
+bool zerglingAlive();
 int main()
 {
-	Marine squad[10];
-	Zergling swarm[20];
-
-	cout << "A squad of marines approaches a swarm of Zerglings and opens fire! The Zerglings charge!" endl;
+	vector<Marine> squad;
+	vector<Zergling> swarm;
+	for(int i=0; i<squadSize;++i)
+	{
+		Marine m;
+		squad.push_back(m);
+	}
+	for (int i = 0; i < swarmSize; ++i)
+	{
+		Zergling z;
+		swarm.push_back(z);
+	}
+	cout << "A squad of marines approaches a swarm of Zerglings and opens fire! The Zerglings charge!"<< endl;
 	// Attack each other until only one team is left alive
-	while (marineAlive() || zerglingAlive(swarm)) // If anyone is left alive to fight . . .
+	while (marineAlive() && zerglingAlive()) // If anyone is left alive to fight . . .
 	{
 		if (marineAlive()) // if there's at least one marine alive
 		{
-			for (size_t i = 0; i < squadSize; i++) // go through the squad
+			for (size_t i = 0; i < squadSize && zerglingAlive(); i++) // go through the squad
 			{
 				// each marine will attack the first zergling in the swarm
 				cout << "A marine fires for " << squad[i].attack() << " damage. " << endl;
@@ -43,45 +60,45 @@ int main()
 				if (!swarm[0].isAlive()) // if the zergling dies, it is marked as such
 				{
 					cout << "The zergling target dies." << endl;
+					swarm.erase(swarm.begin());
+					swarmSize--;
 				}
 			}
 		}
-		if (zerglingAlive(swarm)) // if there's at least one zergling alive
+		if (zerglingAlive()) // if there's at least one zergling alive
 		{
-			for (size_t i = 0; i < squadSize; i++) // loop through zerglings
+			for (size_t i = 0; i < swarmSize && marineAlive(); i++) // loop through zerglings
 			{
-				cout << "A zergling attacks for " << i->attack() << " damage." << endl;
-				squad[0]takeDamage(i->attack());
-				if (squad[0]->isAlive())
+				cout << "A zergling attacks for " << swarm[i].attack() << " damage." << endl;
+				squad[0].takeDamage(swarm[i].attack());
+				if (squad[0].isAlive())
 				{
-
-				}
-				else
 					cout << "The marine succumbs to his wounds." << endl;
-					cout << "There are ??? marines left." << endl;
-					
+					squad.erase(squad.begin());
+					squadSize--;
+				}
 			}
 		}
 	}
-
 	// Once one team is completely eliminated, the fight ends and one team wins
 	cout << "The fight is over. ";
 	if (marineAlive())
 	{
 		cout << "The Marines win." << endl;
-	} else 
+	} else {
 		cout << "The Zerg win." << endl;
 	}
-}
 
+}
 // Is there a Marine Alive?
 bool marineAlive()
 {
-	return false;
+	return squadSize>0;
 }
 
 // Is there a zergling Alive
-bool zerglingAlive(Zergling * swarmArr, size_t arrSize)
+bool zerglingAlive()
 {
-	return false;
+	return swarmSize>0;
 }
+

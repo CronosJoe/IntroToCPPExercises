@@ -1,13 +1,14 @@
 #pragma once
+#include "Entity.h"
 
-class Marine
+class Marine : public Entity
 {
 public:
 	Marine();
 	~Marine();
 
-	int attack();
-	void takeDamage(int damage);
+	int attack() override;
+	void takeDamage(int damage) override;
 
 };
 
