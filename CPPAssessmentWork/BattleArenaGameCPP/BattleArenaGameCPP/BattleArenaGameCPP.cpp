@@ -2,7 +2,10 @@
 //
 
 #include <iostream>
+#include <time.h>
+#include <stdlib.h>
 #include "Character.cpp"
+
 int takeDamage(int damage, int enemyTypeID, int playerTypeID)
 {
     //I'm going to include 3 types, melee, magic, and sneaky which will work with melee beating sneaky, sneaky beating magic, and magic beating melee
@@ -204,6 +207,7 @@ int main()
 {
     //basic gameplay variable setup
     bool isOver = false;
+    srand(time(NULL));
     //array setup
     Character enemyTeam[3];
     Character playerTeam[3];
